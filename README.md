@@ -1,2 +1,2 @@
 # go-trongrid-api
-Golang Call TronGrid API
+Base:https://github.com/fbsobreira/gotron-sdk
