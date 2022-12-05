@@ -62,9 +62,22 @@ func TestParseTRC20Transfer(t *testing.T) {
 }
 
 func TestGetTRC20Bal(t *testing.T) {
-	bal, err := conn.TRC20BalanceOf("TFvisv9KNb2QAGSdrRQHCy4CfASFYsY43H", "TG3XXyExBkPp9nzdajDZsozEu4BkaSJozs")
+	bal, err := conn.TRC20BalanceOf("TWva2iKq2uVZo51EsuUFtrkjaN5VL4K5PG", "TGT6r3rS1tyA77B8LT1gE1pfMFxK9f2XJT")
 	if err != nil {
 		t.Fatal(err)
 	}
 	fmt.Println(bal)
+}
+
+func TestTRC20Transfer(t *testing.T) {
+	hash, err := conn.TRC20Transfer("--",
+		"TWva2iKq2uVZo51EsuUFtrkjaN5VL4K5PG",
+		"TV9uEbtAmAW8e9sdsa8k6aZ2ziz9siGqBj",
+		"TGT6r3rS1tyA77B8LT1gE1pfMFxK9f2XJT",
+		new(big.Int).Mul(big.NewInt(12), big.NewInt(1e17)),
+		10000000)
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(hash)
 }

@@ -12,7 +12,7 @@ func TestTransferTRX(t *testing.T) {
 		t.Fatal(err)
 	}
 	fmt.Println(common.Bytes2Hex(tx.GetTxid()))
-	signedTx, err := conn.SignTx(tx.Transaction, "4c83cb44a759d9079914f5e16fa30b1c3e82d30659453e80875f4b1746eb3e27")
+	signedTx, err := conn.SignTx(tx.Transaction, "--")
 	if err != nil {
 		t.Fatal(err)
 	}
