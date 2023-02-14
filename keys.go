@@ -1,6 +1,7 @@
 package go_trongrid_api
 
 import (
+	ethcmn "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/fbsobreira/gotron-sdk/pkg/address"
 	"github.com/fbsobreira/gotron-sdk/pkg/common"
@@ -29,4 +30,17 @@ func ValidTronAddress(addr string) bool {
 		return false
 	}
 	return true
+}
+
+func ETH2Tron(ethAddr ethcmn.Address) address.Address {
+	addressTron := make([]byte, 0)
+	addressTron = append(addressTron, byte(0x41))
+	addressTron = append(addressTron, ethAddr[:]...)
+	return addressTron
+}
+
+func Tron2ETH(addressTron address.Address) ethcmn.Address {
+	var addressETH ethcmn.Address
+	copy(addressETH[:], addressTron[1:])
+	return addressETH
 }
